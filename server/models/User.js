@@ -23,7 +23,7 @@ const userSchema = new Schema({
     trim: true,
     required: 'Please provide a name'
   },
-  trades: {
+  positions: {
     type: Array,
     default: []
   }

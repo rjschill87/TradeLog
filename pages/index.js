@@ -6,6 +6,8 @@ import withData from '../lib/withData'
 import checkLoggedIn from '../lib/checkLoggedIn'
 import redirect from '../lib/redirect'
 import Layout from '../components/layout'
+import PositionForm from '../components/forms/position'
+import PositionList from '../components/positionList'
 
 class Index extends Component {
   static async getInitialProps(context, apolloClient) {
@@ -21,13 +23,9 @@ class Index extends Component {
         <Layout account={account}>
           <div className='container'>
             <h1> Hello {account.name}! </h1>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            <PositionForm account={account} />
             <br />
-            <br />
+            <PositionList account={account} />
             <button onClick={() => redirect({}, '/logout')}>Logout</button>
             <Link href='/profile'>
               <a>Go to Profile</a>

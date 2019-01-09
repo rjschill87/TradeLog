@@ -2,6 +2,7 @@ const authTypes = `
   type User {
     email: String!
     name: String!
+    positions: [Position]
   }
 `
 
