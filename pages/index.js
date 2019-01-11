@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import Link from 'next/link'
-import cookie from 'cookie'
 
 import withData from '../lib/withData'
 import checkLoggedIn from '../lib/checkLoggedIn'
 import redirect from '../lib/redirect'
 import Layout from '../components/layout'
+import IVCalculator from '../components/forms/ivCalc'
 import PositionForm from '../components/forms/position'
 import PositionList from '../components/positionList'
 
@@ -23,7 +23,14 @@ class Index extends Component {
         <Layout account={account}>
           <div className='container'>
             <h1> Hello {account.name}! </h1>
-            <PositionForm account={account} />
+            <div>
+              <h2>Convert Implied Volatility to Price Action Range</h2>
+              <IVCalculator />
+            </div>
+            <div>
+              <h2>Add Position</h2>
+              <PositionForm account={account} />
+            </div>
             <br />
             <PositionList account={account} />
             <button onClick={() => redirect({}, '/logout')}>Logout</button>

@@ -76,6 +76,38 @@ class PositionForm extends React.Component {
         <div>
           <button type="submit">Purchase</button>
         </div>
+        <style jsx>
+					{`
+						* {
+							box-sizing: border-box;
+							margin: 0;
+						}
+
+						label {
+							display: block;
+						}
+
+						form > div {
+							margin-top: 1rem;
+						}
+
+						input,
+						button {
+							padding: 0.5rem;
+						}
+
+						button {
+							width: 12rem;
+							border: none;
+							cursor: pointer;
+						}
+
+						.out {
+							display: block;
+							margin: 1rem 0;
+						}
+					`}
+				</style>
       </form>
     )
   }
