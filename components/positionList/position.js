@@ -11,6 +11,27 @@ class Position extends Component {
           <span>qty: {this.props.quantity}</span>
           <span>value: {value}</span>
         </div>
+        <style jsx>
+        {`
+          li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            >*:not(:last-child) {
+              margin-right: 1rem;
+            }
+          }
+
+          h3 {
+            margin: 0.25rem;
+          }
+
+          span {
+            margin: 0.25rem;
+          }
+        `}
+        </style>
       </li>
     )
   }

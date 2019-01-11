@@ -41,13 +41,21 @@ class PositionList extends Component {
     return(
       <section>
         <div>
-          <h3>
+          <h2>
             Positions
-          </h3>
+          </h2>
         </div>
-        <div>
+        <ul>
           {this.fetchPositions()}
-        </div>
+        </ul>
+        <style jsx>
+        {`
+          ul {
+            list-style: none;
+            padding-left: 0;
+          }
+        `}
+        </style>
       </section>
     )
   }
