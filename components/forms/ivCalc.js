@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 
 class IVCalcForm extends Component {
   state = {
@@ -11,8 +12,11 @@ class IVCalcForm extends Component {
 
   onFormSubmit = e => {
     e.preventDefault()
+
     let { underlying, iv, expiry, strike } = this.state
     underlying = parseFloat(underlying)
+    expiry = this.getDaysTilExpiry(expiry)
+
     const ev = (iv / 100) * Math.sqrt(expiry / 365)
     const range = (underlying * ev).toFixed(2)
     const low = (underlying - (range / 2)).toFixed(2)
@@ -21,6 +25,13 @@ class IVCalcForm extends Component {
     const output = `The stock has a range of ${range}, with possible price action of $${low} - $${high}. Fair value = $${fv}`
     
     this.setState({ output })
+  }
+
+  getDaysTilExpiry = expiry => {
+    const now = moment()
+    const expiryObj = moment(expiry)
+
+    return expiryObj.diff(now, 'days') + 1
   }
 
   render() {
@@ -52,11 +63,11 @@ class IVCalcForm extends Component {
           />
         </div>
         <div>
-          <label>Days Til Experiation</label>
+          <label>Option Expiry</label>
           <input
-            type="int"
+            type="date"
             onInput={e => this.setState({ expiry: e.target.value })}
-            placeholder="30"
+            placeholder="DD/MM/YY"
           />
         </div>
         <div>
