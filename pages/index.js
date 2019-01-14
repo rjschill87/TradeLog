@@ -20,24 +20,36 @@ class Index extends Component {
     const { account } = this.props.loggedInUser
     if (account) {
       return (
-        <Layout account={account}>
+        <Layout account={account} title="TradeLog">
           <div className='container'>
-            <h1> Hello {account.name}! </h1>
-            <div>
-              <h2>Convert Implied Volatility to Price Action Range</h2>
-              <IVCalculator />
+            <div className='container__left'>
+              <h1> Hello {account.name}! </h1>
+              <div>
+                <h2>Convert Implied Volatility to Price Action Range</h2>
+                <IVCalculator />
+              </div>
             </div>
-            <div>
+            <div className='container__right'>
               <h2>Add Position</h2>
               <PositionForm account={account} />
+              <br />
+              <PositionList account={account} />
             </div>
-            <br />
-            <PositionList account={account} />
+          </div>
+          <footer>
             <button onClick={() => redirect({}, '/logout')}>Logout</button>
             <Link href='/profile'>
               <a>Go to Profile</a>
             </Link>
-          </div>
+          </footer>
+          <style jsx>
+            {`
+            .container {
+              display: flex;
+              justify-content: space-around;
+            }
+            `}
+          </style>
         </Layout>
       )
     }

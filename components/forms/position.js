@@ -89,7 +89,11 @@ class PositionForm extends React.Component {
 
 						form > div {
 							margin-top: 1rem;
-						}
+            }
+            
+            input {
+              width: 100%;
+            }
 
 						input,
 						button {
@@ -97,9 +101,10 @@ class PositionForm extends React.Component {
 						}
 
 						button {
-							width: 12rem;
+							width: 100%;
 							border: none;
-							cursor: pointer;
+              cursor: pointer;
+              border: 1px solid;
 						}
 
 						.out {
